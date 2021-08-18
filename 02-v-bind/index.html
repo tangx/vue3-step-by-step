@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <!-- 
+    Mustache 语法不能作用在 HTML attribute 上，遇到这种情况应该使用 v-bind 指令：
+  -->
+  <div id="app">
+    <div v-bind:id01="id01">
+      {{ id01 }}
+    </div>
+    <div v-bind:id02="id02">
+      {{ id02 }}
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+
+<script lang='ts'>
+  const app = Vue.createApp({
+    // 数据
+    data() {
+      return {
+        id01: "unique-id-001",
+        id02: "unique-id-002"
+      }
+    },
+
+    // 计算属性
+    computed: {
+
+    },
+
+    // 方法
+    methods: {
+
+    },
+
+  })
+
+  app.mount('#app')
+</script>

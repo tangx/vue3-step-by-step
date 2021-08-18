@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <h3>字符串组合</h3>
+      <div>
+        fullname: {{ firstname + '-' + lastname }}
+      </div>
+      <div>
+        fullname: {{ firstname }}-{{ lastname }}
+      </div>
+      <div>
+        fullname: {{ fullname }}
+      </div>
+    </div>
+
+    <hr>
+
+    <div>
+      <h3>数学计算</h3>
+      {{ n1 }} + {{ n2 }} = <span style="font-size: 30px;">{{ sum }}</span>
+      <br>
+      <button @click="n1++">n1++</button>
+      <button @click="n2++">n2++</button>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+<script lang='ts'>
+  const app = Vue.createApp({
+    // 数据
+    data() {
+      return {
+        firstname: 'Jack',
+        lastname: 'Sparrow',
+
+        n1: 10,
+        n2: 10,
+
+      }
+    },
+
+    // 计算属性
+    computed: {
+      fullname() {
+        return this.firstname + '-' + this.lastname;
+      },
+      sum() {
+        return this.n1 + this.n2
+      }
+    },
+
+
+  })
+
+  app.mount('#app')
+</script>
