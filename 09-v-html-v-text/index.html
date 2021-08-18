@@ -12,13 +12,22 @@
 <body>
   <div id="app">
     <div>
-      <h3>text</h3>
       <div>
+        <h3>mustache</h3>
         {{ rawHtml }}
       </div>
       <hr>
-      <h3>v-html</h3>
-      <div v-html="rawHtml"></div>
+
+      <div>
+        <h3>v-text, 等价于 mustache</h3>
+        <div v-text="rawHtml"></div>
+      </div>
+      <hr>
+
+      <div>
+        <h3>v-html</h3>
+        <div v-html="rawHtml"></div>
+      </div>
     </div>
   </div>
 </body>
