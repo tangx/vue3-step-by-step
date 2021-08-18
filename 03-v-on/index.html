@@ -16,6 +16,8 @@
       <hr>
       <button @click="money++">@click money++</button>
       <button v-on:click="money++">v-on:click money++</button>
+      <button @click="raiseMoney">method raiseMoney</button>
+
     </div>
   </div>
 </body>
@@ -31,6 +33,12 @@
         money: 10,
       }
     },
+
+    methods: {
+      raiseMoney() {
+        this.money++
+      }
+    }
   })
 
   app.mount('#app')
