@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3.2.4/dist/vue.global.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <h3>用户信息</h3>
+      <ul>
+        <li v-for="(val,key) in user" :key="key">{{key}} => {{val}}</li>
+      </ul>
+      <button @click="happyBirthday">happy birthday</button>
+      <hr>
+      <h3>爱好信息</h3>
+      <ul>
+        <li v-for="(h,idx) in hobbies" :key="h.id">index {{idx}} : {{h.id}} - {{ h.hobby }}</li>
+      </ul>
+      <button @click="changeHobby">change hobby</button>
+
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+<script lang='ts'>
+  const app = Vue.createApp({
+    // 数据
+    data() {
+      return {
+        hobbies: [
+          {
+            id: "h001", hobby: '抽烟',
+          },
+          {
+            id: "h002", hobby: '喝酒',
+          }, {
+            id: "h003", hobby: '烫头',
+          }
+        ],
+        user: {
+          name: "张三",
+          age: 18,
+          address: {
+            city: "成都",
+            street: "前门大街"
+          }
+        }
+      }
+    },
+
+
+    // 方法
+    methods: {
+      changeHobby() {
+        this.hobbies[0] = {
+          id: "h001", hobby: '打游戏',
+        }
+      },
+      happyBirthday() {
+        this.user.age++
+      }
+
+    },
+
+  })
+
+  app.mount('#app')
+</script>
