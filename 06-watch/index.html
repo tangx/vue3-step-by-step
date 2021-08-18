@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3.2.4/dist/vue.global.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      n1: {{ n1 }} <button @click="n1++">n1++=</button>
+      <br>
+      n2: {{ n2 }} <button @click="n2++">n2++=</button>
+      <hr>
+      <h3>{{ sum }}</h3>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+<script lang='ts'>
+  const app = Vue.createApp({
+    // 数据
+    data() {
+      return {
+        n1: 1,
+        n2: 2,
+
+        sum: 0,
+      }
+    },
+
+    // 计算属性
+    computed: {
+
+    },
+
+    // 方法
+    methods: {
+
+    },
+
+    watch: {
+      n1(newVal, oldVal) {
+        console.log(`newVal => ${newVal}, oldVal => ${oldVal}`);
+        this.sum = this.n1 + this.n2
+      },
+
+      // 加上 immediate: true , 类似 computed
+      n2: {
+        // immediate: true,
+        handler() {
+          this.sum = this.n1 + this.n2
+        },
+        immediate: true,
+      }
+    },
+
+    // watchEffect() {
+    //   this.sum = this.n1 + this.n2
+    // }
+
+  })
+
+  app.mount('#app')
+</script>
