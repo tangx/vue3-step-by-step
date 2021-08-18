@@ -11,14 +11,9 @@
 
 <body>
   <div id="app">
-    <div>
-      money: {{ money }}
-      <hr>
-      <button @click="money++">@click money++</button>
-      <button v-on:click="money++">v-on:click money++</button>
-      <button @click="raiseMoney">method raiseMoney</button>
-
-    </div>
+    firstname: <input type="text" v-model="firstname">
+    <br>
+    lastname: <input type="text" v-model="lastname">
   </div>
 </body>
 
@@ -30,15 +25,23 @@
     // 数据
     data() {
       return {
-        money: 10,
+        firstname: 'Jack',
+        lastname: 'Sparrow'
       }
     },
 
-    methods: {
-      raiseMoney() {
-        this.money++
+    // 计算属性
+    computed: {
+      fullname() {
+        return this.firstname + '-' + this.lastname
       }
-    }
+    },
+
+    // 方法
+    methods: {
+
+    },
+
   })
 
   app.mount('#app')

@@ -6,23 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://unpkg.com/vue@3.2.4/dist/vue.global.js"></script>
 </head>
 
 <body>
   <div id="app">
-    <div>
-      <h3>字符串组合</h3>
-      <div>
-        fullname: {{ firstname + '-' + lastname }}
-      </div>
-      <div>
-        fullname: {{ firstname }}-{{ lastname }}
-      </div>
-      <div>
-        fullname: {{ fullname }}
-      </div>
-    </div>
 
     <hr>
 
@@ -33,7 +21,24 @@
       <button @click="n1++">n1++</button>
       <button @click="n2++">n2++</button>
     </div>
+    <hr>
+
+    <div>
+      <h3>字符串组合</h3>
+      <div>
+        firstname: <input type="text" v-model="firstname">
+        <br>
+        lastname: <input type="text" v-model="lastname">
+        <br>
+        fullname: <input type="text" v-model="fullname">
+        <br>
+      </div>
+
+    </div>
+
   </div>
+
+
 </body>
 
 </html>
@@ -44,23 +49,34 @@
     // 数据
     data() {
       return {
-        firstname: 'Jack',
-        lastname: 'Sparrow',
 
         n1: 10,
         n2: 10,
+
+
+        firstname: 'Jack',
+        lastname: 'Sparrow',
 
       }
     },
 
     // 计算属性
     computed: {
-      fullname() {
-        return this.firstname + '-' + this.lastname;
+      fullname: {
+        get() {
+          return this.firstname + '-' + this.lastname;
+        },
+        set(newVal, oldVal) {
+          console.log(oldVal);
+          const arr = newVal.split('-')
+          this.firstname = arr[0]
+          this.lastname = arr[1]
+        }
       },
       sum() {
         return this.n1 + this.n2
-      }
+      },
+
     },
 
 
