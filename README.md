@@ -6,7 +6,6 @@
 2. [v-bind 绑定属性](./02-v-bind/)
 9. [v-html 模版渲染](./09-v-html)
 4. [v-model 数据双向绑定](./04-computed/)
-10. [v-once 一次绑定](./10-v-once)
 
 ## 事件触发
 
@@ -18,3 +17,5 @@
 
 7. [v-for 循环](./07-v-for/)
 8. [v-if / v-show 条件渲染](./08-v-if-v-show/)
+10. [v-once 一次渲染](./10-v-once)
+
