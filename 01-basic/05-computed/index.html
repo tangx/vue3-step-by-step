@@ -32,6 +32,7 @@
         <br>
         fullname: <input type="text" v-model="fullname">
         <br>
+        nickname: <label>{{ nickname }}</label>
       </div>
 
     </div>
@@ -67,10 +68,15 @@
           return this.firstname + '-' + this.lastname;
         },
         set(newVal, oldVal) {
-          console.log(oldVal);
+          // console.log(oldVal);
           const arr = newVal.split('-')
           this.firstname = arr[0]
           this.lastname = arr[1]
+        }
+      },
+      nickname: {
+        get() {
+          return this.firstname + '@@' + this.lastname;
         }
       },
       sum() {
